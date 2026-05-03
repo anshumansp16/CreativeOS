@@ -1,0 +1,133 @@
+{
+  "name": "Description Generator",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "generate-description",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook: Generate Description",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [200, 300],
+      "webhookId": "generate-description"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract input from webhook body\nconst body = $input.first().json.body || $input.first().json;\n\nreturn {\n  json: {\n    title: body.title || 'Untitled Video',\n    scriptSummary: body.script_summary || body.scriptSummary || '',\n    timestamps: body.timestamps || [],\n    tags: body.tags || []\n  }\n};"
+      },
+      "id": "validate-input",
+      "name": "Validate Input",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [420, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "={{ $env.CLAUDE_API_KEY }}"
+            },
+            {
+              "name": "anthropic-version",
+              "value": "2023-06-01"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"claude-3-5-haiku-20241022\",\n  \"max_tokens\": 1500,\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Create a YouTube video description for SEO optimization.\\n\\nTITLE: {{ $json.title }}\\n\\nSCRIPT SUMMARY:\\n{{ $json.scriptSummary }}\\n\\nTIMESTAMPS:\\n{{ JSON.stringify($json.timestamps) }}\\n\\nTAGS:\\n{{ JSON.stringify($json.tags) }}\\n\\nCreate a description that:\\n1. Has a compelling first 150 characters (shows in search)\\n2. Includes the main keyword naturally\\n3. Has formatted timestamps section\\n4. Includes 3-5 hashtags at the end\\n5. Is under 2000 characters total\\n\\nOutput as JSON:\\n{\\n  \\\"description\\\": \\\"Full formatted description with emojis and sections\\\",\\n  \\\"first_line\\\": \\\"The crucial first line for search results\\\",\\n  \\\"hashtags\\\": [\\\"hashtag1\\\", \\\"hashtag2\\\"],\\n  \\\"character_count\\\": 1234\\n}\"\n    }\n  ]\n}"
+      },
+      "id": "claude-description",
+      "name": "Claude Haiku: Generate",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [640, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse Claude's response\nconst claudeResponse = $input.first().json;\nconst inputData = $('Validate Input').first().json;\n\nlet result = {};\n\ntry {\n  const content = claudeResponse.content?.[0]?.text || '';\n  const jsonMatch = content.match(/\\{[\\s\\S]*\\}/);\n  \n  if (jsonMatch) {\n    result = JSON.parse(jsonMatch[0]);\n  } else {\n    result = {\n      description: content,\n      first_line: content.substring(0, 150),\n      hashtags: [],\n      character_count: content.length\n    };\n  }\n} catch (e) {\n  result = {\n    error: true,\n    message: String(e)\n  };\n}\n\nreturn {\n  json: {\n    success: !result.error,\n    title: inputData.title,\n    generatedAt: new Date().toISOString(),\n    result: result\n  }\n};"
+      },
+      "id": "parse-response",
+      "name": "Parse Response",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [860, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}"
+      },
+      "id": "respond",
+      "name": "Return Description",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1080, 300]
+    }
+  ],
+  "connections": {
+    "Webhook: Generate Description": {
+      "main": [
+        [
+          {
+            "node": "Validate Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Input": {
+      "main": [
+        [
+          {
+            "node": "Claude Haiku: Generate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Claude Haiku: Generate": {
+      "main": [
+        [
+          {
+            "node": "Parse Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Response": {
+      "main": [
+        [
+          {
+            "node": "Return Description",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": ["creatoros", "content"],
+  "triggerCount": 0
+}

@@ -1,0 +1,39 @@
+# Environment and secrets
+.env
+*.pem
+*.key
+
+# Docker data directories (persistent storage)
+n8n/data/
+chroma-data/
+ollama-models/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+env/
+.env.local
+*.egg-info/
+dist/
+build/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp

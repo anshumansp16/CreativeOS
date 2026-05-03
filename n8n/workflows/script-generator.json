@@ -1,0 +1,179 @@
+{
+  "name": "Script Generator",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "generate-script",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook: Generate Script",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [200, 300],
+      "webhookId": "generate-script"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract and validate input parameters\nconst body = $input.first().json.body || $input.first().json;\n\nconst topic = body.topic || 'AI productivity tools';\nconst style = body.style || 'educational';\nconst duration = body.duration || 'medium';\n\n// Map duration to approximate seconds\nconst durationMap = {\n  'short': 60,\n  'medium': 240,\n  'long': 600\n};\n\nreturn {\n  json: {\n    topic: topic,\n    style: style,\n    duration: duration,\n    targetSeconds: durationMap[duration] || 240\n  }\n};"
+      },
+      "id": "validate-input",
+      "name": "Validate Input",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [420, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://rag-service:8080/query",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"query\": \"{{ $json.topic }} brand voice style guidelines\",\n  \"top_k\": 5\n}"
+      },
+      "id": "rag-query",
+      "name": "RAG: Get Context",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [640, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Combine RAG results into context string\nconst ragResponse = $input.first().json;\nconst inputData = $('Validate Input').first().json;\n\nlet contextChunks = [];\n\nif (ragResponse.chunks && ragResponse.chunks.length > 0) {\n  ragResponse.chunks.forEach(chunk => {\n    contextChunks.push(`[${chunk.doc_type}] ${chunk.content}`);\n  });\n}\n\nconst ragContext = contextChunks.length > 0 \n  ? contextChunks.join('\\n\\n')\n  : 'No specific brand context found. Use general best practices for engaging YouTube content.';\n\nreturn {\n  json: {\n    topic: inputData.topic,\n    style: inputData.style,\n    duration: inputData.duration,\n    targetSeconds: inputData.targetSeconds,\n    ragContext: ragContext,\n    contextChunksCount: contextChunks.length\n  }\n};"
+      },
+      "id": "build-context",
+      "name": "Build Prompt Context",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [860, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "={{ $env.CLAUDE_API_KEY }}"
+            },
+            {
+              "name": "anthropic-version",
+              "value": "2023-06-01"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"claude-sonnet-4-20250514\",\n  \"max_tokens\": 4000,\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"You are a YouTube script writer. Write a complete script based on the following:\\n\\nTOPIC: {{ $json.topic }}\\nSTYLE: {{ $json.style }}\\nTARGET DURATION: {{ $json.duration }} ({{ $json.targetSeconds }} seconds)\\n\\nBRAND VOICE CONTEXT:\\n{{ $json.ragContext }}\\n\\nWrite a script that:\\n1. Starts with a powerful hook (first 10 seconds)\\n2. Uses conversational Hinglish where natural\\n3. Has clear sections with timestamps\\n4. Includes visual notes for B-roll\\n5. Ends with a specific call to action\\n\\nOutput as JSON with this structure:\\n{\\n  \\\"title\\\": \\\"Optimized video title (max 60 chars)\\\",\\n  \\\"hook\\\": \\\"Opening hook script\\\",\\n  \\\"sections\\\": [\\n    {\\n      \\\"timestamp\\\": \\\"0:00\\\",\\n      \\\"name\\\": \\\"Section name\\\",\\n      \\\"script\\\": \\\"Full script text\\\",\\n      \\\"visual_notes\\\": \\\"B-roll suggestions\\\",\\n      \\\"duration_seconds\\\": 30\\n    }\\n  ],\\n  \\\"call_to_action\\\": \\\"Closing CTA\\\",\\n  \\\"thumbnail_ideas\\\": [\\\"idea1\\\", \\\"idea2\\\"],\\n  \\\"tags\\\": [\\\"tag1\\\", \\\"tag2\\\"]\\n}\"\n    }\n  ]\n}"
+      },
+      "id": "claude-script",
+      "name": "Claude: Generate Script",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1080, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse Claude's response and extract the script JSON\nconst claudeResponse = $input.first().json;\nconst inputData = $('Build Prompt Context').first().json;\n\nlet script = {};\n\ntry {\n  const content = claudeResponse.content?.[0]?.text || '';\n  \n  // Find JSON in the response\n  const jsonMatch = content.match(/\\{[\\s\\S]*\\}/);\n  if (jsonMatch) {\n    script = JSON.parse(jsonMatch[0]);\n  } else {\n    throw new Error('No JSON found in response');\n  }\n  \n  // Calculate total duration\n  let totalDuration = 0;\n  if (script.sections) {\n    script.sections.forEach(section => {\n      totalDuration += section.duration_seconds || 0;\n    });\n  }\n  script.total_duration_seconds = totalDuration;\n  \n} catch (e) {\n  script = {\n    error: true,\n    message: 'Failed to parse script: ' + String(e),\n    raw_response: claudeResponse.content?.[0]?.text?.substring(0, 500)\n  };\n}\n\nreturn {\n  json: {\n    success: !script.error,\n    topic: inputData.topic,\n    style: inputData.style,\n    generatedAt: new Date().toISOString(),\n    script: script,\n    ragContextUsed: inputData.contextChunksCount > 0\n  }\n};"
+      },
+      "id": "parse-script",
+      "name": "Parse Script",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1300, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}"
+      },
+      "id": "respond",
+      "name": "Return Script",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1520, 300]
+    }
+  ],
+  "connections": {
+    "Webhook: Generate Script": {
+      "main": [
+        [
+          {
+            "node": "Validate Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Input": {
+      "main": [
+        [
+          {
+            "node": "RAG: Get Context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RAG: Get Context": {
+      "main": [
+        [
+          {
+            "node": "Build Prompt Context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Prompt Context": {
+      "main": [
+        [
+          {
+            "node": "Claude: Generate Script",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Claude: Generate Script": {
+      "main": [
+        [
+          {
+            "node": "Parse Script",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Script": {
+      "main": [
+        [
+          {
+            "node": "Return Script",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": ["creatoros", "content"],
+  "triggerCount": 0
+}

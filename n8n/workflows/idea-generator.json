@@ -1,0 +1,195 @@
+{
+  "name": "Idea Generator",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "weeksInterval": 1,
+              "triggerAtDay": [1]
+            }
+          ]
+        }
+      },
+      "id": "schedule-trigger",
+      "name": "Weekly Schedule",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [200, 300]
+    },
+    {
+      "parameters": {},
+      "id": "manual-trigger",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [200, 480]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://trends.google.com/trends/api/dailytrends",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "geo",
+              "value": "IN"
+            },
+            {
+              "name": "hl",
+              "value": "en-IN"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "google-trends",
+      "name": "Fetch Google Trends",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [440, 380],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse trends data and combine with manual ideas\nconst trendsData = $input.first().json;\nlet trendingTopics = [];\n\n// Try to parse Google Trends response\ntry {\n  if (trendsData && trendsData.body) {\n    // Google Trends API returns data with )]}' prefix\n    const cleanJson = trendsData.body.replace(\")]}'\\n\", '');\n    const parsed = JSON.parse(cleanJson);\n    \n    if (parsed.default?.trendingSearchesDays) {\n      parsed.default.trendingSearchesDays.forEach(day => {\n        day.trendingSearches?.slice(0, 5).forEach(trend => {\n          trendingTopics.push({\n            title: trend.title?.query || trend.title,\n            traffic: trend.formattedTraffic || 'N/A',\n            source: 'google_trends'\n          });\n        });\n      });\n    }\n  }\n} catch (e) {\n  console.log('Trends parsing failed, using fallback');\n}\n\n// If no trends found, use tech topic fallbacks\nif (trendingTopics.length === 0) {\n  trendingTopics = [\n    { title: 'AI tools for productivity', traffic: 'High', source: 'fallback' },\n    { title: 'Claude vs ChatGPT comparison', traffic: 'High', source: 'fallback' },\n    { title: 'Learn coding with AI', traffic: 'Medium', source: 'fallback' },\n    { title: 'Automation for creators', traffic: 'Medium', source: 'fallback' },\n    { title: 'Side hustle ideas 2024', traffic: 'High', source: 'fallback' }\n  ];\n}\n\n// Personal idea bank (add your own ideas here)\nconst personalIdeas = [\n  'How I automate my YouTube workflow',\n  'The AI tools I use daily',\n  'Building a second brain with Notion',\n  'My productivity system explained'\n];\n\nreturn {\n  json: {\n    trendingTopics: trendingTopics.slice(0, 10),\n    personalIdeas: personalIdeas,\n    totalIdeas: trendingTopics.length + personalIdeas.length,\n    generatedAt: new Date().toISOString()\n  }\n};"
+      },
+      "id": "parse-trends",
+      "name": "Parse & Combine Ideas",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [660, 380]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "={{ $env.CLAUDE_API_KEY }}"
+            },
+            {
+              "name": "anthropic-version",
+              "value": "2023-06-01"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"claude-sonnet-4-20250514\",\n  \"max_tokens\": 2000,\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"You are a YouTube content strategist. Analyze these video ideas and rank the TOP 5 by virality potential for a tech/productivity YouTube channel targeting Indian audience.\\n\\nTRENDING TOPICS:\\n{{ JSON.stringify($json.trendingTopics) }}\\n\\nPERSONAL IDEAS:\\n{{ JSON.stringify($json.personalIdeas) }}\\n\\nFor each of the TOP 5 ideas, provide:\\n1. Rank (1-5)\\n2. Idea title (optimized for clicks)\\n3. Why it will work (1 sentence)\\n4. Suggested angle/hook\\n5. Difficulty to produce (Easy/Medium/Hard)\\n\\nOutput as JSON array with keys: rank, title, reasoning, angle, difficulty\"\n    }\n  ]\n}"
+      },
+      "id": "claude-rank",
+      "name": "Claude: Rank Ideas",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [880, 380]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse Claude's response and format output\nconst claudeResponse = $input.first().json;\nlet rankedIdeas = [];\n\ntry {\n  // Extract the text content from Claude's response\n  const content = claudeResponse.content?.[0]?.text || '';\n  \n  // Try to parse JSON from the response\n  const jsonMatch = content.match(/\\[([\\s\\S]*?)\\]/);\n  if (jsonMatch) {\n    rankedIdeas = JSON.parse(`[${jsonMatch[1]}]`);\n  } else {\n    // Fallback: create structured output from text\n    rankedIdeas = [{\n      rank: 1,\n      title: 'Could not parse Claude response',\n      reasoning: content.substring(0, 200),\n      angle: 'Manual review needed',\n      difficulty: 'Medium'\n    }];\n  }\n} catch (e) {\n  rankedIdeas = [{\n    rank: 1,\n    title: 'Error parsing response',\n    reasoning: String(e),\n    angle: 'Check Claude API response',\n    difficulty: 'Unknown'\n  }];\n}\n\nreturn {\n  json: {\n    success: true,\n    generatedAt: new Date().toISOString(),\n    topIdeas: rankedIdeas,\n    count: rankedIdeas.length\n  }\n};"
+      },
+      "id": "format-output",
+      "name": "Format Output",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1100, 380]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}"
+      },
+      "id": "respond",
+      "name": "Return Ideas",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1320, 380]
+    }
+  ],
+  "connections": {
+    "Weekly Schedule": {
+      "main": [
+        [
+          {
+            "node": "Fetch Google Trends",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Fetch Google Trends",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Google Trends": {
+      "main": [
+        [
+          {
+            "node": "Parse & Combine Ideas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse & Combine Ideas": {
+      "main": [
+        [
+          {
+            "node": "Claude: Rank Ideas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Claude: Rank Ideas": {
+      "main": [
+        [
+          {
+            "node": "Format Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Output": {
+      "main": [
+        [
+          {
+            "node": "Return Ideas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": ["creatoros", "content"],
+  "triggerCount": 0
+}
