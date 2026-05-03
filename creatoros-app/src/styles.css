@@ -1,0 +1,425 @@
+/* macOS Native Style - CreatorOS */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  /* macOS Dark Mode Colors */
+  --bg-window: #1e1e1e;
+  --bg-sidebar: rgba(30, 30, 30, 0.85);
+  --bg-content: #252525;
+  --bg-card: #2d2d2d;
+  --bg-hover: #3a3a3a;
+  --bg-input: #1a1a1a;
+  --border: rgba(255, 255, 255, 0.1);
+  --border-focus: #007AFF;
+
+  /* macOS System Colors */
+  --accent: #007AFF;
+  --accent-hover: #0066d9;
+  --green: #32D74B;
+  --orange: #FF9F0A;
+  --red: #FF453A;
+  --purple: #BF5AF2;
+  --teal: #64D2FF;
+
+  /* Text */
+  --text-primary: rgba(255, 255, 255, 0.95);
+  --text-secondary: rgba(255, 255, 255, 0.55);
+  --text-tertiary: rgba(255, 255, 255, 0.35);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+  background: var(--bg-window);
+  color: var(--text-primary);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* App Layout */
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar - macOS Style */
+.sidebar {
+  width: 220px;
+  background: var(--bg-sidebar);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  padding-top: 48px; /* Space for traffic lights */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  margin-bottom: 20px;
+}
+
+.logo-icon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, var(--purple), var(--accent));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 122, 255, 0.3);
+}
+
+.logo-text {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+/* Navigation - macOS Sidebar Style */
+.nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 400;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+  text-align: left;
+  letter-spacing: -0.1px;
+}
+
+.nav-item:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.nav-item.active {
+  background: rgba(0, 122, 255, 0.2);
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* Sidebar Footer */
+.sidebar-footer {
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  margin-top: 8px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--text-tertiary);
+  padding: 4px 10px;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--green);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--green);
+}
+
+/* Main Content */
+.main {
+  flex: 1;
+  padding: 32px 40px;
+  overflow-y: auto;
+  background: var(--bg-content);
+}
+
+.page { display: none; }
+.page.active { display: block; animation: fadeIn 0.2s ease; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Page Header */
+.page-header {
+  margin-bottom: 28px;
+}
+
+.page-header h1 {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+
+.page-header p {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+/* Stats Grid - macOS Card Style */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  transition: all 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.stat-card.accent {
+  background: linear-gradient(135deg, rgba(0, 122, 255, 0.15), rgba(191, 90, 242, 0.15));
+  border-color: rgba(0, 122, 255, 0.3);
+}
+
+.stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  color: var(--text-secondary);
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.stat-target {
+  font-size: 11px;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* Quick Actions */
+.quick-actions h2 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.action-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.action-btn {
+  padding: 18px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+  background: var(--bg-hover);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 122, 255, 0.15);
+}
+
+/* Tool Section - macOS Panel Style */
+.tool-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+/* macOS Style Inputs */
+.tool-section input,
+.tool-section select {
+  padding: 8px 12px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-size: 13px;
+  font-family: inherit;
+  min-width: 180px;
+  transition: all 0.15s ease;
+}
+
+.tool-section input {
+  flex: 1;
+}
+
+.tool-section input:focus,
+.tool-section select:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.25);
+}
+
+.tool-section input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.input-row {
+  display: flex;
+  gap: 10px;
+}
+
+/* macOS Style Primary Button */
+.primary-btn {
+  padding: 8px 16px;
+  background: var(--accent);
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.primary-btn:hover {
+  background: var(--accent-hover);
+}
+
+.primary-btn:active {
+  transform: scale(0.98);
+}
+
+.primary-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.primary-btn.loading {
+  position: relative;
+  color: transparent;
+}
+
+.primary-btn.loading::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  top: 50%;
+  left: 50%;
+  margin: -7px 0 0 -7px;
+  border: 2px solid white;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Output Section - macOS Panel */
+.output-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  min-height: 280px;
+}
+
+.placeholder {
+  color: var(--text-tertiary);
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 13px;
+}
+
+.output-content {
+  white-space: pre-wrap;
+  font-family: 'SF Mono', 'Monaco', 'Menlo', monospace;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+/* Error/Success States */
+.error {
+  color: var(--red);
+  padding: 14px 16px;
+  background: rgba(255, 69, 58, 0.1);
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.success {
+  color: var(--green);
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .stats-grid, .action-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 800px) {
+  .sidebar { width: 180px; }
+  .main { padding: 24px; }
+  .stats-grid, .action-grid { grid-template-columns: 1fr; }
+}
+
+/* Scrollbar - macOS Style */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Selection */
+::selection {
+  background: rgba(0, 122, 255, 0.3);
+}

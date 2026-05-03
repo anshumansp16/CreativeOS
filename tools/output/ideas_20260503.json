@@ -1,0 +1,94 @@
+{
+  "ranked_ideas": [
+    {
+      "rank": 1,
+      "idea": "Vibe coding a full app in 30 minutes with Claude Code",
+      "title_suggestion": "30 मिनट में पूरा App बना दिया! Claude Code से LIVE 😱",
+      "hook": "मैं बिना plan किए अभी एक full app बनाने वाला हूं Claude से... और अगर fail हो गया तो पूरा video upload करूंगा!",
+      "scores": {
+        "search_demand": 9,
+        "trend_alignment": 10,
+        "competition_gap": 9,
+        "audience_fit": 10,
+        "production_ease": 8,
+        "evergreen": 7
+      },
+      "total_score": 53,
+      "reasoning": "Time-bound challenges are viral gold. Live coding anxiety + AI assistance creates natural drama. Hindi tech audience loves speed coding content.",
+      "angle": "Unscripted, high-stakes live building with real-time problem solving and potential failure"
+    },
+    {
+      "rank": 2,
+      "idea": "Building a YouTube script generator that writes better than humans",
+      "title_suggestion": "AI ने मेरे लिए Viral Script लिख दिया! 🤯 (Claude vs ChatGPT Battle)",
+      "hook": "आज मैं ऐसा AI script generator बनाऊंगा जो मुझसे भी बेहतर YouTube videos के लिए scripts लिखेगा... let's see कौन जीतता है!",
+      "scores": {
+        "search_demand": 8,
+        "trend_alignment": 9,
+        "competition_gap": 8,
+        "audience_fit": 9,
+        "production_ease": 7,
+        "evergreen": 8
+      },
+      "total_score": 49,
+      "reasoning": "Meta-content (making tools for content creation) performs well. Direct benefit to audience. AI comparison adds competitive element.",
+      "angle": "Self-referential challenge - building the tool that could replace the creator, with live A/B testing"
+    },
+    {
+      "rank": 3,
+      "idea": "My complete YouTube automation system exposed (N8N + AI workflow)",
+      "title_suggestion": "मैं YouTube पर Cheating कर रहा था! 😳 पूरी Automation दिखा रहा हूं",
+      "hook": "Guys confession time - मैं पिछले 6 महीने से YouTube पर automation use कर रहा हूं... आज सब कुछ reveal कर रहा हूं including failures!",
+      "scores": {
+        "search_demand": 7,
+        "trend_alignment": 8,
+        "competition_gap": 9,
+        "audience_fit": 8,
+        "production_ease": 6,
+        "evergreen": 9
+      },
+      "total_score": 47,
+      "reasoning": "Behind-the-scenes content is highly engaging. Confession angle creates curiosity. Practical value for creators.",
+      "angle": "Honest reveal of creator's secret workflow with transparent breakdown of what works/doesn't"
+    },
+    {
+      "rank": 4,
+      "idea": "Building a RAG system that knows everything about my YouTube channel",
+      "title_suggestion": "AI को अपना पूरा YouTube Channel समझा दिया! 🧠 (RAG System Live Build)",
+      "hook": "आज मैं अपने YouTube channel का clone brain बना रहा हूं... ये AI मेरे सारे videos को समझकर नए ideas देगा!",
+      "scores": {
+        "search_demand": 6,
+        "trend_alignment": 8,
+        "competition_gap": 8,
+        "audience_fit": 7,
+        "production_ease": 5,
+        "evergreen": 8
+      },
+      "total_score": 42,
+      "reasoning": "RAG is trending in AI circles. Personal application makes it relatable. Technical but valuable for audience growth.",
+      "angle": "Personal AI assistant creation with immediate practical testing on real channel data"
+    },
+    {
+      "rank": 5,
+      "idea": "ChatGPT vs Claude Code battle: Building the same app twice",
+      "title_suggestion": "ChatGPT vs Claude: Same App, कौन तेज़? 🥊 (Live Coding Battle)",
+      "hook": "आज ultimate battle है - same app बनाऊंगा दोनों AI से... देखते हैं कौन जीतता है speed, quality और user experience में!",
+      "scores": {
+        "search_demand": 8,
+        "trend_alignment": 7,
+        "competition_gap": 6,
+        "audience_fit": 8,
+        "production_ease": 6,
+        "evergreen": 6
+      },
+      "total_score": 41,
+      "reasoning": "Comparison content performs well but market is saturated. Split-screen format could be engaging but complex to execute.",
+      "angle": "Head-to-head live building competition with real-time performance metrics and honest comparison"
+    }
+  ],
+  "top_pick": {
+    "idea": "Vibe coding a full app in 30 minutes with Claude Code",
+    "why": "High-stakes time pressure + AI assistance + potential failure = viral content formula. Demonstrates real AI development workflow authentically.",
+    "record_this_week": true
+  }
+}

@@ -19,11 +19,16 @@ class RetrieverService:
     def _get_client(self):
         """Lazy initialization of ChromaDB client."""
         if self._client is None:
-            self._client = chromadb.HttpClient(
-                host=settings.chroma_host,
-                port=settings.chroma_port,
-                settings=ChromaSettings(anonymized_telemetry=False)
-            )
+            try:
+                self._client = chromadb.HttpClient(
+                    host=settings.chroma_host,
+                    port=settings.chroma_port,
+                    tenant="default_tenant",
+                    database="default_database",
+                )
+            except Exception as e:
+                logger.error(f"Failed to create ChromaDB client: {e}")
+                raise
         return self._client
 
     def _get_collection(self):

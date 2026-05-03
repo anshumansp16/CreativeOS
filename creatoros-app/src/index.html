@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CreatorOS</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="logo">
+        <span class="logo-icon">C</span>
+        <span class="logo-text">CreatorOS</span>
+      </div>
+      <nav class="nav">
+        <button class="nav-item active" data-page="dashboard">Dashboard</button>
+        <button class="nav-item" data-page="ideas">Idea Engine</button>
+        <button class="nav-item" data-page="scripts">Script Generator</button>
+        <button class="nav-item" data-page="viral">Viral Content</button>
+        <button class="nav-item" data-page="analytics">Analytics</button>
+        <button class="nav-item" data-page="calendar">Calendar</button>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="status"><span class="status-dot"></span>All systems ready</div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div id="page-dashboard" class="page active">
+        <header class="page-header"><h1>Dashboard</h1><p>Welcome back, Anshuman</p></header>
+        <div class="stats-grid">
+          <div class="stat-card"><div class="stat-value">359</div><div class="stat-label">Subscribers</div><div class="stat-target">Target: 500</div></div>
+          <div class="stat-card"><div class="stat-value">473</div><div class="stat-label">Avg Views</div><div class="stat-target">Target: 1,000</div></div>
+          <div class="stat-card"><div class="stat-value">0</div><div class="stat-label">Videos This Month</div><div class="stat-target">Target: 8</div></div>
+          <div class="stat-card accent"><div class="stat-value">YPP</div><div class="stat-label">Next Milestone</div><div class="stat-target">141 subs to go</div></div>
+        </div>
+        <div class="quick-actions">
+          <h2>Quick Actions</h2>
+          <div class="action-grid">
+            <button class="action-btn" onclick="switchPage('ideas')">Generate Ideas</button>
+            <button class="action-btn" onclick="switchPage('scripts')">Write Script</button>
+            <button class="action-btn" onclick="switchPage('viral')">Viral Title</button>
+            <button class="action-btn" onclick="switchPage('analytics')">View Analytics</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="page-ideas" class="page">
+        <header class="page-header"><h1>Idea Engine</h1><p>Generate trending video ideas</p></header>
+        <div class="tool-section">
+          <select id="idea-count"><option value="3">3 ideas</option><option value="5" selected>5 ideas</option><option value="10">10 ideas</option></select>
+          <button class="primary-btn" id="generate-ideas-btn" onclick="generateIdeas()">Generate Ideas</button>
+        </div>
+        <div class="output-section" id="ideas-output"><div class="placeholder">Click "Generate Ideas" to get started</div></div>
+      </div>
+
+      <div id="page-scripts" class="page">
+        <header class="page-header"><h1>Script Generator</h1><p>Generate full Hindi/Hinglish scripts</p></header>
+        <div class="tool-section">
+          <input type="text" id="script-topic" placeholder="Enter video topic...">
+          <div class="input-row">
+            <select id="script-style"><option value="tutorial">Tutorial</option><option value="demonstration" selected>Demonstration</option><option value="explainer">Explainer</option></select>
+            <select id="script-duration"><option value="short">Short (5-8 min)</option><option value="medium" selected>Medium (8-12 min)</option><option value="long">Long (12-20 min)</option></select>
+          </div>
+          <button class="primary-btn" id="generate-script-btn" onclick="generateScript()">Generate Script</button>
+        </div>
+        <div class="output-section" id="script-output"><div class="placeholder">Enter a topic and click "Generate Script"</div></div>
+      </div>
+
+      <div id="page-viral" class="page">
+        <header class="page-header"><h1>Viral Content</h1><p>Generate viral titles and descriptions</p></header>
+        <div class="tool-section">
+          <input type="text" id="viral-topic" placeholder="Enter video topic...">
+          <button class="primary-btn" id="generate-viral-btn" onclick="generateViralContent()">Generate Viral Package</button>
+        </div>
+        <div class="output-section" id="viral-output"><div class="placeholder">Enter a topic to generate viral content</div></div>
+      </div>
+
+      <div id="page-analytics" class="page">
+        <header class="page-header"><h1>YouTube Analytics</h1><p>View your channel performance</p></header>
+        <div class="tool-section">
+          <button class="primary-btn" id="fetch-analytics-btn" onclick="fetchAnalytics()">Fetch Analytics</button>
+        </div>
+        <div class="output-section" id="analytics-output"><div class="placeholder">Click "Fetch Analytics" to load data</div></div>
+      </div>
+
+      <div id="page-calendar" class="page">
+        <header class="page-header"><h1>Content Calendar</h1><p>Your 30-day content plan</p></header>
+        <div class="tool-section">
+          <button class="primary-btn" id="generate-calendar-btn" onclick="generateCalendar()">Generate Calendar</button>
+        </div>
+        <div class="output-section" id="calendar-output"><div class="placeholder">Click "Generate Calendar" to create plan</div></div>
+      </div>
+    </main>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>

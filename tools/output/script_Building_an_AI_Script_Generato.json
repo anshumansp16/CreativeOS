@@ -1,0 +1,80 @@
+{
+  "title": "Built an AI Script Writer in 3 Minutes (Claude API Demo)",
+  "hook": "Watch me build an AI that writes complete YouTube scripts in seconds",
+  "sections": [
+    {
+      "timestamp": "0:00",
+      "name": "Hook - Show Final Result",
+      "script": "Dekho - main type kar raha hun 'AI productivity tips' aur boom! Ek complete YouTube script ready ho gaya. 200+ words, proper structure, even thumbnail ideas included. Aur ye sab maine banaya hai sirf 3 minutes mein using Claude API. Chaliye dekhte hain kaise!",
+      "visual_notes": "Screen recording: Type prompt, show instant script generation with all sections populated. Quick montage of the final output",
+      "duration_seconds": 15
+    },
+    {
+      "timestamp": "0:15",
+      "name": "Problem Setup",
+      "script": "Content creators ki sabse badi problem kya hai? Script writing! Hours lagते हैं research mein, structure sochने mein. But what if I told you - ek simple tool bana kar ye sab automate kar sakte hain?",
+      "visual_notes": "Quick shots of frustrated content creator, multiple browser tabs open, notepad with messy script drafts",
+      "duration_seconds": 15
+    },
+    {
+      "timestamp": "0:30",
+      "name": "Live Build Start",
+      "script": "Alright, let's build this live! Pehle main Claude console mein jaata hun. API key generate karta hun - obviously ye private rahega. Now, simple HTML file banata hun with basic structure.",
+      "visual_notes": "Screen recording: Navigate to Claude console, generate API key (blur the actual key), open VS Code, create new HTML file",
+      "duration_seconds": 20
+    },
+    {
+      "timestamp": "0:50",
+      "name": "Code Implementation",
+      "script": "HTML form bana raha hun - topic input, script type dropdown. JavaScript mein fetch call setup kar raha hun Claude API ke liye. Dekho main prompt engineering kar raha hun - structure define kar raha hun, JSON format specify kar raha hun. Ye important hai!",
+      "visual_notes": "Screen recording: Type HTML form quickly, show JavaScript code being written, highlight the prompt structure and JSON format specification",
+      "duration_seconds": 30
+    },
+    {
+      "timestamp": "1:20",
+      "name": "Testing & Demo",
+      "script": "Bas ho gaya! Let's test this. Main type karta hun 'AI tools for coding' - submit karta hun aur... wait for it... Perfect! Complete script with hook, sections, CTA, even tags included. Thumbnail ideas bhi suggest kar raha hai!",
+      "visual_notes": "Screen recording: Test the tool, show loading state, reveal the generated script with all sections, scroll through the output",
+      "duration_seconds": 25
+    },
+    {
+      "timestamp": "1:45",
+      "name": "Quick Enhancements",
+      "script": "Isko aur better banate hain. Copy button add karta hun, error handling dalता hun, aur styling thoda improve karta hun. Production ready tool ban गया! Cost bhi minimal hai - sirf API calls ke liye pay karna hai.",
+      "visual_notes": "Screen recording: Add copy functionality, basic CSS styling, test error scenarios, show the polished final version",
+      "duration_seconds": 35
+    },
+    {
+      "timestamp": "2:20",
+      "name": "Real-world Usage",
+      "script": "Ab real mein use kar ke dekhte हैं. Different niches try karta hun - tech, finance, lifestyle. Har baar relevant, engaging script mil rahi hai. Content creators ke liye ye game-changer hai!",
+      "visual_notes": "Quick montage: Generate scripts for different topics, show variety in outputs, highlight the quality and relevance",
+      "duration_seconds": 25
+    },
+    {
+      "timestamp": "2:45",
+      "name": "Wrap-up & Value",
+      "script": "Guys, total time laga sirf 3 minutes! Ek tool ready hai jo hours ka work seconds mein kar deta hai. Best part - ye customize kar sakte हो अपनी needs के according. Script style change karना हो, format modify करना हो - सब possible है!",
+      "visual_notes": "Screen showing the complete working tool, quick demonstration of customization options",
+      "duration_seconds": 20
+    }
+  ],
+  "call_to_action": "Code chahiye? Description mein GitHub link hai. Aur aise aur AI tools banana seekhना है toh channel subscribe karo - next week Claude API ke advanced features dikhaunga!",
+  "thumbnail_ideas": [
+    "Split screen: Before (messy script drafts) vs After (clean generated script)",
+    "3 MINUTES text overlay with Claude API interface and generated script in background",
+    "Person pointing at screen showing AI-generated script with excited expression"
+  ],
+  "tags": [
+    "claude api",
+    "ai script generator",
+    "content creation automation",
+    "hinglish tech",
+    "productivity tools",
+    "ai tools 2024",
+    "script writing ai",
+    "youtube automation",
+    "claude ai demo",
+    "content creator tools"
+  ]
+}

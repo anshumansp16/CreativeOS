@@ -1,0 +1,127 @@
+{
+  "calendar": [
+    {
+      "date": "2026-05-06",
+      "day": "Tuesday",
+      "title": "Claude se AI Script Generator Banayenge LIVE! | Step-by-Step Tutorial",
+      "type": "live_build",
+      "duration": "15-20 min",
+      "production_time": "long",
+      "priority": "P1",
+      "notes": "Priority video - live coding session building script generator from scratch"
+    },
+    {
+      "date": "2026-05-10",
+      "day": "Saturday",
+      "title": "Cursor vs Claude Code - Kaun Sa Better? | Complete Comparison 2026",
+      "type": "comparison",
+      "duration": "10-12 min",
+      "production_time": "medium",
+      "priority": "P1",
+      "notes": "Head-to-head comparison with real coding examples"
+    },
+    {
+      "date": "2026-05-13",
+      "day": "Tuesday",
+      "title": "30 Minutes Mein Complete Web App! | AI Vibe Coding Challenge",
+      "type": "challenge",
+      "duration": "12-15 min",
+      "production_time": "medium",
+      "priority": "P1",
+      "notes": "Speed coding session - highly engaging format"
+    },
+    {
+      "date": "2026-05-17",
+      "day": "Saturday",
+      "title": "5 AI Tools Jo Har Developer Ko Chahiye | Game Changing Tools 2026",
+      "type": "listicle",
+      "duration": "8-10 min",
+      "production_time": "short",
+      "priority": "P2",
+      "notes": "Quick fire tool recommendations with demos"
+    },
+    {
+      "date": "2026-05-20",
+      "day": "Tuesday",
+      "title": "N8N se Automation Workflow Banao | Beginner se Pro Level",
+      "type": "tutorial",
+      "duration": "12-15 min",
+      "production_time": "long",
+      "priority": "P2",
+      "notes": "Complete N8N workflow creation with practical examples"
+    },
+    {
+      "date": "2026-05-24",
+      "day": "Saturday",
+      "title": "FREE AI Tools vs PAID - Paisa Bach Gaya! | Complete Guide",
+      "type": "comparison",
+      "duration": "10-12 min",
+      "production_time": "medium",
+      "priority": "P1",
+      "notes": "Cost-saving alternatives - appeals to Indian audience"
+    },
+    {
+      "date": "2026-05-27",
+      "day": "Tuesday",
+      "title": "MCP Advanced Tutorial - Model Context Protocol Deep Dive | Hindi",
+      "type": "advanced_tutorial",
+      "duration": "15-18 min",
+      "production_time": "long",
+      "priority": "P2",
+      "notes": "Follow-up to popular MCP video with advanced concepts"
+    },
+    {
+      "date": "2026-05-31",
+      "day": "Saturday",
+      "title": "Mera Complete AI Workflow Stack 2026 | Developer Productivity Setup",
+      "type": "workflow_demo",
+      "duration": "12-15 min",
+      "production_time": "medium",
+      "priority": "P1",
+      "notes": "Personal workflow showcase - builds authority and trust"
+    }
+  ],
+  "weekly_breakdown": {
+    "week_1": [
+      "Claude AI Script Generator",
+      "Cursor vs Claude Code"
+    ],
+    "week_2": [
+      "30 Min Web App Challenge",
+      "5 AI Tools for Developers"
+    ],
+    "week_3": [
+      "N8N Automation Workflow",
+      "FREE vs PAID AI Tools"
+    ],
+    "week_4": [
+      "MCP Advanced Tutorial",
+      "Complete AI Workflow Stack"
+    ]
+  },
+  "content_pillars": [
+    "AI Development Tools",
+    "Live Coding & Demos",
+    "Developer Productivity",
+    "Cost-Effective Solutions"
+  ],
+  "expected_outcomes": {
+    "target_subs": "500 (YPP milestone)",
+    "target_views": "18000-25000",
+    "expected_watch_hours": "800-1200",
+    "engagement_rate": "2.5%+",
+    "notes": "Focus on viral potential with Indian developer pain points"
+  },
+  "optimization_strategy": {
+    "thumbnails": "Bold Hindi text + English keywords, bright colors",
+    "tags": "Mix Hindi and English tags for broader reach",
+    "description": "Hinglish with timestamps and resource links",
+    "community_engagement": "Reply in Hindi/Hinglish, pin comments asking for next video suggestions"
+  },
+  "success_metrics": {
+    "week_1_target": "380+ subs",
+    "week_2_target": "420+ subs",
+    "week_3_target": "460+ subs",
+    "week_4_target": "500+ subs (YPP qualified)"
+  }
+}
