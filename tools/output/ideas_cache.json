@@ -1,0 +1,283 @@
+{
+  "ideas": [
+    {
+      "title": "Claude Code vs Cursor: Which Saves More Tokens in 2026?",
+      "hook": "I coded the same project in both — Claude Code cost ₹47, Cursor cost ₹156. Here's why.",
+      "category": "GenAI Dev",
+      "searchDemand": "High",
+      "competition": "Low",
+      "successProbability": 82,
+      "estimatedViews": "8K-20K",
+      "targetAudience": "Fullstack devs, freelancers, indie hackers deciding between Claude Code & Cursor",
+      "whyNow": "Claude Code just exploded on YouTube (1.2M+ views in trending). Cursor Pro pricing is controversial. Direct comparison with token cost breakdown will dominate search.",
+      "seoKeywords": [
+        "Claude Code vs Cursor",
+        "AI coding tools comparison 2026",
+        "cheapest AI coding assistant",
+        "Claude Code token cost",
+        "Cursor vs Claude Code"
+      ],
+      "trendScore": 89,
+      "source": "trend"
+    },
+    {
+      "title": "Ollama + Claude MCP = Free AI Coding Setup (No Subscription)",
+      "hook": "Build a local AI coding agent that never costs a rupee. Works offline. Here's how.",
+      "category": "GenAI Dev",
+      "searchDemand": "High",
+      "competition": "Medium",
+      "successProbability": 79,
+      "estimatedViews": "6K-18K",
+      "targetAudience": "Budget-conscious Indian devs, students, freelancers avoiding subscription costs",
+      "whyNow": "Ollama + MCP ranked #3 on YouTube trending (260K views). GitHub repos like MemPalace (50K stars) prove demand for free local LLM setups. Search volume for 'free Claude alternative' is rising.",
+      "seoKeywords": [
+        "Ollama Claude MCP tutorial",
+        "free AI coding assistant",
+        "local LLM setup",
+        "Claude alternative free",
+        "run Claude offline"
+      ],
+      "trendScore": 87,
+      "source": "trend"
+    },
+    {
+      "title": "I Built a Stock Trading Bot with Claude Opus in 2 Hours",
+      "hook": "No ML experience needed. Just Claude, some APIs, and ₹0 in losses (today). Live build.",
+      "category": "GenAI Dev",
+      "searchDemand": "High",
+      "competition": "Medium",
+      "successProbability": 85,
+      "estimatedViews": "10K-25K",
+      "targetAudience": "Aspiring fintech devs, traders curious about AI automation, builders looking for viral demo ideas",
+      "whyNow": "YouTube trending shows 1M+ views for 'Claude Changed Stock Market' + 'Claude as 24/7 Trader'. Fintech automation is massive trend. Your live build format is proven with this audience.",
+      "seoKeywords": [
+        "Claude trading bot",
+        "AI stock trading tutorial",
+        "build trading bot with Claude",
+        "Claude Opus automation"
+      ],
+      "trendScore": 91,
+      "source": "trend"
+    },
+    {
+      "title": "AWS Bedrock vs Claude Direct: Enterprise Cost Breakdown (India Pricing)",
+      "hook": "₹500 saved per 1M tokens on Bedrock. But there's a catch. Real numbers for Indian startups.",
+      "category": "AWS & Cloud",
+      "searchDemand": "Medium",
+      "competition": "Low",
+      "successProbability": 76,
+      "estimatedViews": "4K-12K",
+      "targetAudience": "Indian startup CTOs, AWS architects, backend devs building GenAI products",
+      "whyNow": "AWS Bedrock tutorials rank 2K-0 views (underserved). Enterprise GenAI infra is a blind spot for Indian tech creators. Bedrock + SageMaker gaining traction. Your AWS background is unique angle.",
+      "seoKeywords": [
+        "AWS Bedrock pricing India",
+        "Claude vs AWS Bedrock",
+        "enterprise GenAI cost",
+        "Bedrock vs direct API",
+        "SageMaker vs Claude"
+      ],
+      "trendScore": 68,
+      "source": "launch"
+    },
+    {
+      "title": "Top 5 Free AI Agent Frameworks You Can Build With (2026 Edition)",
+      "hook": "From Ollama to open-source alternatives — I ranked them by simplicity, cost, and real-world viability.",
+      "category": "GenAI Dev",
+      "searchDemand": "High",
+      "competition": "Medium",
+      "successProbability": 81,
+      "estimatedViews": "7K-16K",
+      "targetAudience": "Indie devs, students, freelancers evaluating AI agent tech, builders avoiding vendor lock-in",
+      "whyNow": "GitHub trending exploding with agent frameworks: harmonist (1.2K stars), future-agi (812), thClaws (727). This is the 'listicle sweet spot' — high search demand, creator education angle.",
+      "seoKeywords": [
+        "free AI agent framework",
+        "open source AI agents",
+        "best LLM agent platform",
+        "Claude alternative framework",
+        "AI agent tools comparison"
+      ],
+      "trendScore": 84,
+      "source": "launch"
+    },
+    {
+      "title": "MCP (Model Context Protocol) Explained in 15 Minutes | Indian DevOps Angle",
+      "hook": "Your prod system just became 10x more powerful with Claude. What is MCP and why should you care?",
+      "category": "DevOps",
+      "searchDemand": "Medium",
+      "competition": "Low",
+      "successProbability": 77,
+      "estimatedViews": "5K-14K",
+      "targetAudience": "DevOps engineers, backend devs, system architects curious about AI integration",
+      "whyNow": "Your content calendar has 'MCP Advanced: Building Custom Protocols' scheduled for May 27. Lead with foundational explainer. HN mentions MCP 4 times in trending. GitHub repos (mempalace, open-design, llmwiki) all use MCP.",
+      "seoKeywords": [
+        "what is MCP",
+        "Model Context Protocol tutorial",
+        "MCP Claude",
+        "MCP DevOps",
+        "Claude MCP setup"
+      ],
+      "trendScore": 79,
+      "source": "calendar"
+    },
+    {
+      "title": "I Tried Claude Code for 30 Days. Here's My Honest Review (Vs My Old Workflow).",
+      "hook": "Speed: +40%. Cost: -60%. Bugs: +50%. Here's what actually changed in my dev life.",
+      "category": "GenAI Dev",
+      "searchDemand": "High",
+      "competition": "Medium",
+      "successProbability": 83,
+      "estimatedViews": "9K-22K",
+      "targetAudience": "Mid-level devs skeptical of AI coding tools, freelancers calculating ROI, creators evaluating tools",
+      "whyNow": "Your format (proven hits: 'I tried X for 30 days') + Claude Code's explosion = viral potential. Honest reviews outrank hype videos. Your fullstack dev credibility makes this unique.",
+      "seoKeywords": [
+        "Claude Code review",
+        "is Claude Code worth it",
+        "Claude Code vs manual coding",
+        "AI coding tool honest review",
+        "Claude Code productivity"
+      ],
+      "trendScore": 88,
+      "source": "creative"
+    },
+    {
+      "title": "Building Custom AI Skills for Claude Code (Live Coding Session)",
+      "hook": "Your own AI superpower. I built a 'Document Analyzer' skill that saves 2 hours daily. Here's how.",
+      "category": "GenAI Dev",
+      "searchDemand": "Medium",
+      "competition": "Low",
+      "successProbability": 80,
+      "estimatedViews": "6K-15K",
+      "targetAudience": "Advanced Claude Code users, developers optimizing workflows, builders wanting custom tooling",
+      "whyNow": "GitHub shows explosion of skill-based repos (caveman, career-ops, design-extract, SkillClaw). Your calendar says 'Claude Code skill' on May 6. Live coding format = high engagement. Low competition on custom skill tutorials.",
+      "seoKeywords": [
+        "Claude Code custom skills",
+        "build Claude skills tutorial",
+        "Claude Code skill development",
+        "extend Claude Code functionality"
+      ],
+      "trendScore": 75,
+      "source": "calendar"
+    },
+    {
+      "title": "Design Extract Tool Just Went Open-Source | Live Demo on Real Website",
+      "hook": "Extract any website's design system in one command. I tested it on 5 Indian startup websites.",
+      "category": "Fullstack",
+      "searchDemand": "Low",
+      "competition": "Very Low",
+      "successProbability": 72,
+      "estimatedViews": "3K-9K",
+      "targetAudience": "Frontend devs, UI/UX engineers, fullstack builders saving design-to-code hours",
+      "whyNow": "design-extract just hit 2K stars on GitHub. Brand new launch (May 2026). Multi-platform emitters (iOS SwiftUI, Android Compose, Flutter). First-mover YouTube coverage will rank high.",
+      "seoKeywords": [
+        "design extract tool",
+        "extract website design system",
+        "auto design to code",
+        "Figma alternative automation",
+        "design system extraction"
+      ],
+      "trendScore": 62,
+      "source": "launch"
+    },
+    {
+      "title": "Best AI Tools for Indian Freelance Developers in 2026 (Honest Tier List)",
+      "category": "AI Tools",
+      "searchDemand": "High",
+      "competition": "Medium",
+      "successProbability": 79,
+      "estimatedViews": "8K-18K",
+      "targetAudience": "Freelancers, indie hackers, solopreneurs in India making tool decisions, job-seekers building projects",
+      "hook": "From ₹0 to ₹500/month. I ranked 12 tools by ROI, ease, and real impact on your rates.",
+      "whyNow": "Your calendar has 'Top 5 AI Tools Every Indian Developer Should Know' on May 13. Expand to 12-tool tier list. High search volume for 'best AI tools 2026' + freelancer-specific angle is underserved.",
+      "seoKeywords": [
+        "best AI tools for developers 2026",
+        "AI tools for freelancers India",
+        "top coding tools",
+        "AI developer tools comparison",
+        "affordable AI tools"
+      ],
+      "trendScore": 86,
+      "source": "calendar"
+    },
+    {
+      "title": "Ollama on Mac M3 vs Claude API | Speed & Cost Comparison (30 Minutes)",
+      "hook": "Local = instant replies. Cloud = cheaper per month. I built the same thing twice. Results shocked me.",
+      "category": "GenAI Dev",
+      "searchDemand": "Medium",
+      "competition": "Low",
+      "successProbability": 74,
+      "estimatedViews": "5K-12K",
+      "targetAudience": "Mac developers, indie hackers optimizing for speed vs cost, DevOps engineers choosing inference strategy",
+      "whyNow": "Ollama trending #2 (260K views). Local LLM movement is accelerating. GitHub repos (PokeClaw, harmonist) show demand. M3/Apple Silicon angle is niche but high-intent audience.",
+      "seoKeywords": [
+        "Ollama vs Claude API",
+        "local LLM vs cloud API",
+        "Ollama performance",
+        "run LLM locally macOS",
+        "Ollama cost comparison"
+      ],
+      "trendScore": 73,
+      "source": "trend"
+    },
+    {
+      "title": "AutoML Agent Framework: Build Agents That Code Autonomously (New on GitHub)",
+      "hook": "Hermes, thClaws, future-agi — I built with all 3. Here's which framework wins for different use cases.",
+      "category": "GenAI Dev",
+      "searchDemand": "Medium",
+      "competition": "Low",
+      "successProbability": 77,
+      "estimatedViews": "6K-14K",
+      "targetAudience": "Advanced developers, system architects, builders wanting autonomous coding agents, research enthusiasts",
+      "whyNow": "GitHub agent frameworks exploding (hermes 3.4K, harmonist 1.2K, thClaws 727 stars — all recent). This niche is hot. Your fullstack + system design background is perfect for deep technical comparison.",
+      "seoKeywords": [
+        "AI agent framework comparison",
+        "autonomous coding agent",
+        "Hermes vs thClaws",
+        "agent orchestration",
+        "agentic AI development"
+      ],
+      "trendScore": 71,
+      "source": "launch"
+    },
+    {
+      "title": "Hidden Features in Claude Code That Save 10+ Hours Weekly (Advanced Tips)",
+      "hook": "Nobody talks about batch processing, context caching, and skill composition. I tested all 3.",
+      "category": "GenAI Dev",
+      "searchDemand": "Medium",
+      "competition": "Very Low",
+      "successProbability": 78,
+      "estimatedViews": "5K-13K",
+      "targetAudience": "Power users of Claude Code, developers optimizing workflows, builders seeking productivity hacks",
+      "whyNow": "Claude Code has exploded (1M+ views), but tutorial content focuses on basics. Advanced features = low competition + high engagement from existing Claude Code users. Gap in market.",
+      "seoKeywords": [
+        "Claude Code hidden features",
+        "Claude Code advanced tips",
+        "Claude Code batch processing",
+        "Claude Code productivity hacks",
+        "Claude Code optimization"
+      ],
+      "trendScore": 81,
+      "source": "creative"
+    },
+    {
+      "title": "The Complete Generative AI Stack for Indian Startups in 2026",
+      "hook": "Claude + Bedrock + MCP + open-source agents + your infra. How to build without breaking the bank.",
+      "category": "AWS & Cloud",
+      "searchDemand": "High",
+      "competition": "Low",
+      "successProbability": 81,
+      "estimatedViews": "7K-17K",
+      "targetAudience": "Startup CTOs, founders building GenAI products, architects designing AI systems, technical leads at Indian startups",
+      "whyNow": "Your calendar has 'My Complete AI Workflow Stack 2026' on May 31. Position as enterprise-focused. AWS + Claude + open-source is the 2026 stack. Underserved on YouTube from Indian creator POV.",
+      "seoKeywords": [
+        "GenAI stack 2026",
+        "AI infrastructure setup",
+        "Claude AWS integration",
+        "building AI products",
+        "startup AI stack"
+      ],
+      "trendScore": 89,
+      "source": "calendar"
+    }
+  ],
+  "generatedAt": 1777838121535
+}

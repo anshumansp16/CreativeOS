@@ -3,125 +3,120 @@
     {
       "date": "2026-05-06",
       "day": "Tuesday",
-      "title": "Claude se AI Script Generator Banayenge LIVE! | Step-by-Step Tutorial",
-      "type": "live_build",
-      "duration": "15-20 min",
-      "production_time": "long",
+      "title": "Building AI Script Generator with Claude Code | Live Coding in Hindi",
+      "type": "demo",
+      "duration": "12-15 min",
+      "production_time": "medium",
       "priority": "P1",
-      "notes": "Priority video - live coding session building script generator from scratch"
+      "notes": "Priority video - live build a script generator, show real-time coding with Claude"
     },
     {
       "date": "2026-05-10",
       "day": "Saturday",
-      "title": "Cursor vs Claude Code - Kaun Sa Better? | Complete Comparison 2026",
+      "title": "Cursor vs Claude Code: Ultimate Comparison | Kaunsa Best Hai Developers Ke Liye?",
       "type": "comparison",
       "duration": "10-12 min",
       "production_time": "medium",
       "priority": "P1",
-      "notes": "Head-to-head comparison with real coding examples"
+      "notes": "Side-by-side comparison, test same project on both, honest review"
     },
     {
       "date": "2026-05-13",
       "day": "Tuesday",
-      "title": "30 Minutes Mein Complete Web App! | AI Vibe Coding Challenge",
-      "type": "challenge",
-      "duration": "12-15 min",
-      "production_time": "medium",
-      "priority": "P1",
-      "notes": "Speed coding session - highly engaging format"
-    },
-    {
-      "date": "2026-05-17",
-      "day": "Saturday",
-      "title": "5 AI Tools Jo Har Developer Ko Chahiye | Game Changing Tools 2026",
+      "title": "5 AI Tools Every Indian Developer Should Know in 2026 | Free & Paid Both",
       "type": "listicle",
       "duration": "8-10 min",
       "production_time": "short",
       "priority": "P2",
-      "notes": "Quick fire tool recommendations with demos"
+      "notes": "Include pricing in INR, focus on tools useful for Indian market"
+    },
+    {
+      "date": "2026-05-17",
+      "day": "Saturday",
+      "title": "Complete App Banaya 30 Minutes Mein | AI-Powered Vibe Coding Session",
+      "type": "demo",
+      "duration": "15-18 min",
+      "production_time": "long",
+      "priority": "P1",
+      "notes": "Fast-paced coding session, build something useful, show entire process"
     },
     {
       "date": "2026-05-20",
       "day": "Tuesday",
-      "title": "N8N se Automation Workflow Banao | Beginner se Pro Level",
+      "title": "FREE Alternatives to Paid AI Tools | GitHub Copilot, Cursor Pro Ke Badle Use Karo Ye",
       "type": "tutorial",
-      "duration": "12-15 min",
-      "production_time": "long",
+      "duration": "10-12 min",
+      "production_time": "medium",
       "priority": "P2",
-      "notes": "Complete N8N workflow creation with practical examples"
+      "notes": "Focus on budget-conscious developers, show setup process for each"
     },
     {
       "date": "2026-05-24",
       "day": "Saturday",
-      "title": "FREE AI Tools vs PAID - Paisa Bach Gaya! | Complete Guide",
-      "type": "comparison",
-      "duration": "10-12 min",
-      "production_time": "medium",
-      "priority": "P1",
-      "notes": "Cost-saving alternatives - appeals to Indian audience"
+      "title": "Automation Magic with N8N | Automate Your Entire Workflow | Hindi Tutorial",
+      "type": "tutorial",
+      "duration": "12-15 min",
+      "production_time": "long",
+      "priority": "P2",
+      "notes": "Build practical automation, maybe social media posting or data processing"
     },
     {
       "date": "2026-05-27",
       "day": "Tuesday",
-      "title": "MCP Advanced Tutorial - Model Context Protocol Deep Dive | Hindi",
-      "type": "advanced_tutorial",
-      "duration": "15-18 min",
-      "production_time": "long",
-      "priority": "P2",
-      "notes": "Follow-up to popular MCP video with advanced concepts"
+      "title": "MCP Advanced: Building Custom Protocols | Model Context Protocol Deep Dive",
+      "type": "tutorial",
+      "duration": "10-12 min",
+      "production_time": "medium",
+      "priority": "P3",
+      "notes": "Follow up to previous MCP video, more advanced concepts"
     },
     {
       "date": "2026-05-31",
       "day": "Saturday",
-      "title": "Mera Complete AI Workflow Stack 2026 | Developer Productivity Setup",
-      "type": "workflow_demo",
+      "title": "My Complete AI Workflow Stack 2026 | Developer Productivity Setup | Hindi",
+      "type": "tutorial",
       "duration": "12-15 min",
       "production_time": "medium",
       "priority": "P1",
-      "notes": "Personal workflow showcase - builds authority and trust"
+      "notes": "Show entire workflow from idea to deployment, tools integration"
     }
   ],
   "weekly_breakdown": {
     "week_1": [
-      "Claude AI Script Generator",
-      "Cursor vs Claude Code"
+      "Building AI Script Generator with Claude Code | Live Coding in Hindi",
+      "Cursor vs Claude Code: Ultimate Comparison | Kaunsa Best Hai Developers Ke Liye?"
     ],
     "week_2": [
-      "30 Min Web App Challenge",
-      "5 AI Tools for Developers"
+      "5 AI Tools Every Indian Developer Should Know in 2026 | Free & Paid Both",
+      "Complete App Banaya 30 Minutes Mein | AI-Powered Vibe Coding Session"
     ],
     "week_3": [
-      "N8N Automation Workflow",
-      "FREE vs PAID AI Tools"
+      "FREE Alternatives to Paid AI Tools | GitHub Copilot, Cursor Pro Ke Badle Use Karo Ye",
+      "Automation Magic with N8N | Automate Your Entire Workflow | Hindi Tutorial"
     ],
     "week_4": [
-      "MCP Advanced Tutorial",
-      "Complete AI Workflow Stack"
+      "MCP Advanced: Building Custom Protocols | Model Context Protocol Deep Dive",
+      "My Complete AI Workflow Stack 2026 | Developer Productivity Setup | Hindi"
     ]
   },
   "content_pillars": [
-    "AI Development Tools",
-    "Live Coding & Demos",
+    "AI Tools & Tutorials",
     "Developer Productivity",
-    "Cost-Effective Solutions"
+    "Live Coding Demos",
+    "Tool Comparisons",
+    "Free Alternatives"
   ],
   "expected_outcomes": {
     "target_subs": "500 (YPP milestone)",
-    "target_views": "18000-25000",
-    "expected_watch_hours": "800-1200",
+    "target_views": "18000-22000",
+    "expected_watch_hours": "600-800",
     "engagement_rate": "2.5%+",
-    "notes": "Focus on viral potential with Indian developer pain points"
+    "notes": "Focus on high-engagement demos and comparisons that performed well historically"
   },
   "optimization_strategy": {
-    "thumbnails": "Bold Hindi text + English keywords, bright colors",
-    "tags": "Mix Hindi and English tags for broader reach",
-    "description": "Hinglish with timestamps and resource links",
-    "community_engagement": "Reply in Hindi/Hinglish, pin comments asking for next video suggestions"
-  },
-  "success_metrics": {
-    "week_1_target": "380+ subs",
-    "week_2_target": "420+ subs",
-    "week_3_target": "460+ subs",
-    "week_4_target": "500+ subs (YPP qualified)"
+    "thumbnails": "Bright colors, Hindi text overlay, tool logos, before/after shots",
+    "titles": "Mix of Hindi/English, include year 2026, use power words like 'Ultimate', 'Complete'",
+    "description": "Include timestamps, tool links, and Hindi keywords for better discoverability",
+    "tags": "Focus on Hindi tech terms, Indian developer keywords, tool-specific tags"
   }
 }

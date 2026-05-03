@@ -1,0 +1,53 @@
+{
+  "insights": [
+    {
+      "category": "Growth",
+      "title": "Watch Hours is Your Real Bottleneck",
+      "insight": "You're 39% toward subscriber goal but only 11% toward watch hours. 430/4000 watch hours means your videos aren't retaining viewers—likely due to pacing or length issues. This is your monetization ceiling, not subscribers.",
+      "action": "Analyze your top 5 videos' average view duration in YouTube Studio. If <40% average retention, restructure intros (cut first 30 seconds fluff) and add pattern interrupts every 90 seconds.",
+      "impact": "High",
+      "emoji": "⏱️"
+    },
+    {
+      "category": "Content Strategy",
+      "title": "Your Top Videos Have Zero Engagement Data",
+      "insight": "5 'top videos' show undefined views/likes—this suggests they're either unlisted, age-restricted, or YouTube analytics isn't tracking them properly. You're flying blind on what actually resonates with your audience.",
+      "action": "Audit all 22 videos in YouTube Studio. Check: visibility settings, age restrictions, and exact view counts. Screenshot top 10 by watch time, not uploads. This is foundational.",
+      "impact": "High",
+      "emoji": "🔍"
+    },
+    {
+      "category": "Growth Pattern",
+      "title": "Extremely Slow Accumulation (22 videos, 359 subs, 9600 views)",
+      "insight": "436 average views per video and 16.3 subscribers per video uploaded suggests your content isn't being discovered. SEO/titles/thumbnails are likely weak, or you're not publishing enough (how often do you upload?). This pace hits YPP in 12+ months.",
+      "action": "Starting tomorrow: publish 1 video every 3 days minimum. Implement YouTube SEO—research 'cursor AI tutorial,' 'ollama local LLM,' 'MCP explained' search volumes. Use TubeBuddy/VidIQ to identify low-competition keywords in your niche.",
+      "impact": "High",
+      "emoji": "📈"
+    },
+    {
+      "category": "Niche Opportunity",
+      "title": "AI Developer Tools + Hindi Tutorials = Underserved Segment",
+      "insight": "You're positioned at intersection of English AI content + Hindi explanations (Ollama, MCP, Cursor tutorials). This is valuable—Indian developers searching in Hindi for technical tools have fewer quality creators. This is your moat.",
+      "action": "Double down: Create 5 videos specifically optimized for 'Hindi AI tools tutorial' searches. Titles like 'Cursor AI Tutorial for Indian Developers (Hindi)' + English subtitles for global reach. Test if Hindi titles + English content splits audience profitably.",
+      "impact": "Medium",
+      "emoji": "🇮🇳"
+    },
+    {
+      "category": "Monetization Reality",
+      "title": "₹1L+ MRR Requires 50K+ Subs or 100K+ Watch Hours First",
+      "insight": "At current velocity (359 subs in unknown time), you're 139 subs from YPP but 3570 watch hours behind. Even reaching YPP won't hit ₹1L—CPM on dev content is ₹200-400, so you'd need 25K-50K monthly views minimum. Your actual revenue target: 100K watch hours + 50K subs (18-24 months at 2x growth).",
+      "action": "Reframe goal: focus on YPP by Aug 2026 (5 months). Plan for ₹5-15K MRR by end of 2026, then scale to ₹1L+ by 2027. Build email list + GitHub sponsorships in parallel to diversify revenue now (don't wait for AdSense).",
+      "impact": "High",
+      "emoji": "💰"
+    },
+    {
+      "category": "Immediate Action",
+      "title": "Missing Data = Missing Strategy",
+      "insight": "You don't know which videos drive subs, which keywords convert, or viewer demographics. Without YouTube Studio deep-dive (audience location, device, traffic source, click-through rate), you're optimizing blind.",
+      "action": "Today: Spend 2 hours in YouTube Studio. Export data: top 10 videos by watch time, traffic sources (search %?), audience country breakdown, CTR on thumbnails. Identify: which 3 videos have highest watch time AND subscriber conversion ratio. Model the next 10 videos after those.",
+      "impact": "High",
+      "emoji": "🔧"
+    }
+  ],
+  "generatedAt": 1777832957458
+}

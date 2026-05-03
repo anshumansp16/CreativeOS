@@ -8,92 +8,473 @@
 </head>
 <body>
   <div class="app">
+    <!-- Sidebar -->
     <aside class="sidebar">
       <div class="logo">
-        <span class="logo-icon">C</span>
-        <span class="logo-text">CreatorOS</span>
+        <div class="logo-icon">C</div>
+        <div class="logo-text">
+          <h1>CreatorOS</h1>
+          <p>AI Content Studio</p>
+        </div>
       </div>
-      <nav class="nav">
-        <button class="nav-item active" data-page="dashboard">Dashboard</button>
-        <button class="nav-item" data-page="ideas">Idea Engine</button>
-        <button class="nav-item" data-page="scripts">Script Generator</button>
-        <button class="nav-item" data-page="viral">Viral Content</button>
-        <button class="nav-item" data-page="analytics">Analytics</button>
-        <button class="nav-item" data-page="calendar">Calendar</button>
+
+      <nav>
+        <button class="nav-item active" data-page="dashboard">
+          <span class="emoji">🏠</span> Dashboard
+        </button>
+        <button class="nav-item" data-page="goals">
+          <span class="emoji">🚀</span> Goals & Roadmap
+        </button>
+        <button class="nav-item" data-page="youtube">
+          <span class="emoji">📺</span> YouTube Studio
+        </button>
+        <button class="nav-item" data-page="insights">
+          <span class="emoji">📈</span> Insights
+        </button>
+        <button class="nav-item" data-page="ideas">
+          <span class="emoji">💡</span> Idea Generator
+        </button>
+        <button class="nav-item" data-page="tray">
+          <span class="emoji">🎬</span> Video Tray
+        </button>
+        <button class="nav-item" data-page="scripts">
+          <span class="emoji">📝</span> Script Generator
+        </button>
+        <button class="nav-item" data-page="descriptions">
+          <span class="emoji">💬</span> Description Gen
+        </button>
+        <button class="nav-item" data-page="social">
+          <span class="emoji">🚀</span> Social Content
+        </button>
+        
+        <div class="nav-divider"></div>
+        
+        <button class="nav-item" data-page="analytics">
+          <span class="emoji">📊</span> Analytics
+        </button>
+        <button class="nav-item" data-page="library">
+          <span class="emoji">📁</span> Library
+        </button>
+        <button class="nav-item" data-page="settings">
+          <span class="emoji">⚙️</span> Settings
+        </button>
       </nav>
-      <div class="sidebar-footer">
-        <div class="status"><span class="status-dot"></span>All systems ready</div>
+
+      <div class="status-footer">
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          <span>All systems ready</span>
+        </div>
+        <p class="version">v1.0.0 • Made with ❤️</p>
       </div>
     </aside>
 
+    <!-- Main Content -->
     <main class="main">
-      <div id="page-dashboard" class="page active">
-        <header class="page-header"><h1>Dashboard</h1><p>Welcome back, Anshuman</p></header>
+      <!-- Dashboard Page -->
+      <div id="dashboard" class="page active">
+        <div class="header">
+          <div>
+            <h1>Welcome back, <span class="gradient-text">Anshuman</span>! 👋</h1>
+            <p>Here's your content creation overview for today</p>
+          </div>
+          <div class="header-actions">
+            <button class="btn-primary">✨ New Content</button>
+          </div>
+        </div>
+
         <div class="stats-grid">
-          <div class="stat-card"><div class="stat-value">359</div><div class="stat-label">Subscribers</div><div class="stat-target">Target: 500</div></div>
-          <div class="stat-card"><div class="stat-value">473</div><div class="stat-label">Avg Views</div><div class="stat-target">Target: 1,000</div></div>
-          <div class="stat-card"><div class="stat-value">0</div><div class="stat-label">Videos This Month</div><div class="stat-target">Target: 8</div></div>
-          <div class="stat-card accent"><div class="stat-value">YPP</div><div class="stat-label">Next Milestone</div><div class="stat-target">141 subs to go</div></div>
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="emoji">👥</span>
+              <span class="badge badge-red">YPP Goal</span>
+            </div>
+            <div class="stat-value" id="subs-count">359</div>
+            <div class="stat-label">Subscribers</div>
+            <div class="progress-bar"><div class="progress-bar-fill red" style="width: 72%"></div></div>
+            <div class="stat-target">Target: 500 for YPP</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="emoji">👁️</span>
+              <span class="badge badge-purple">Growing</span>
+            </div>
+            <div class="stat-value" id="views-count">9.6K</div>
+            <div class="stat-label">Total Views</div>
+            <div class="progress-bar"><div class="progress-bar-fill purple" style="width: 65%"></div></div>
+            <div class="stat-target">+12% this month</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="emoji">⏱️</span>
+              <span class="badge badge-orange">In Progress</span>
+            </div>
+            <div class="stat-value">430</div>
+            <div class="stat-label">Watch Hours</div>
+            <div class="progress-bar"><div class="progress-bar-fill orange" style="width: 14%"></div></div>
+            <div class="stat-target">Target: 3,000 for YPP</div>
+          </div>
+          <div class="stat-card accent">
+            <div class="stat-header">
+              <span class="emoji">🎯</span>
+              <span class="badge badge-primary">Next Goal</span>
+            </div>
+            <div class="stat-value gradient-text">YPP</div>
+            <div class="stat-label">Next Milestone</div>
+            <div class="stat-target" style="color: #818cf8; font-weight: 500;">141 subs + 2570 hours to go</div>
+          </div>
         </div>
-        <div class="quick-actions">
-          <h2>Quick Actions</h2>
-          <div class="action-grid">
-            <button class="action-btn" onclick="switchPage('ideas')">Generate Ideas</button>
-            <button class="action-btn" onclick="switchPage('scripts')">Write Script</button>
-            <button class="action-btn" onclick="switchPage('viral')">Viral Title</button>
-            <button class="action-btn" onclick="switchPage('analytics')">View Analytics</button>
+
+        <h2 style="color: white; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">⚡ Quick Actions</h2>
+        <div class="actions-grid">
+          <button class="action-card" data-page="ideas">
+            <div class="icon-wrapper">💡</div>
+            <span>Generate Ideas</span>
+          </button>
+          <button class="action-card" data-page="scripts">
+            <div class="icon-wrapper">📝</div>
+            <span>Write Script</span>
+          </button>
+          <button class="action-card" data-page="descriptions">
+            <div class="icon-wrapper">💬</div>
+            <span>Description</span>
+          </button>
+          <button class="action-card" data-page="goals">
+            <div class="icon-wrapper">🚀</div>
+            <span>View Goals</span>
+          </button>
+        </div>
+
+        <!-- Top Videos Section -->
+        <div class="section-card" style="margin-top: 32px;">
+          <h3>🎬 Top Videos</h3>
+          <div id="dashboard-videos" style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="text-align: center; padding: 40px; color: #64748b;">
+              <span style="font-size: 32px; display: block; margin-bottom: 8px;">📹</span>
+              Loading videos...
+            </div>
           </div>
         </div>
       </div>
 
-      <div id="page-ideas" class="page">
-        <header class="page-header"><h1>Idea Engine</h1><p>Generate trending video ideas</p></header>
-        <div class="tool-section">
-          <select id="idea-count"><option value="3">3 ideas</option><option value="5" selected>5 ideas</option><option value="10">10 ideas</option></select>
-          <button class="primary-btn" id="generate-ideas-btn" onclick="generateIdeas()">Generate Ideas</button>
-        </div>
-        <div class="output-section" id="ideas-output"><div class="placeholder">Click "Generate Ideas" to get started</div></div>
-      </div>
-
-      <div id="page-scripts" class="page">
-        <header class="page-header"><h1>Script Generator</h1><p>Generate full Hindi/Hinglish scripts</p></header>
-        <div class="tool-section">
-          <input type="text" id="script-topic" placeholder="Enter video topic...">
-          <div class="input-row">
-            <select id="script-style"><option value="tutorial">Tutorial</option><option value="demonstration" selected>Demonstration</option><option value="explainer">Explainer</option></select>
-            <select id="script-duration"><option value="short">Short (5-8 min)</option><option value="medium" selected>Medium (8-12 min)</option><option value="long">Long (12-20 min)</option></select>
+      <!-- Ideas Page -->
+      <div id="ideas" class="page">
+        <div class="header">
+          <div>
+            <h1>💡 Idea Generator</h1>
+            <p>AI-researched ideas · GenAI, AWS, Fullstack, DevOps &amp; more · Indian dev audience</p>
           </div>
-          <button class="primary-btn" id="generate-script-btn" onclick="generateScript()">Generate Script</button>
+          <div class="header-actions">
+            <button class="btn-secondary" onclick="refreshIdeas(event)" id="ideas-refresh-btn">🔄 Refresh Ideas</button>
+          </div>
         </div>
-        <div class="output-section" id="script-output"><div class="placeholder">Enter a topic and click "Generate Script"</div></div>
+        <div id="ideas-cache-info" style="color:#64748b;font-size:12px;margin-bottom:16px;display:none;"></div>
+        <div id="ideas-output">
+          <div style="text-align:center;padding:60px;">
+            <span style="font-size:64px;display:block;margin-bottom:16px;">💡</span>
+            <h3 style="color:white;margin-bottom:8px;">Researching ideas...</h3>
+            <p style="color:#94a3b8;">Analyzing YouTube trends for Indian dev audience</p>
+          </div>
+        </div>
       </div>
 
-      <div id="page-viral" class="page">
-        <header class="page-header"><h1>Viral Content</h1><p>Generate viral titles and descriptions</p></header>
-        <div class="tool-section">
-          <input type="text" id="viral-topic" placeholder="Enter video topic...">
-          <button class="primary-btn" id="generate-viral-btn" onclick="generateViralContent()">Generate Viral Package</button>
+      <!-- Scripts Page -->
+      <div id="scripts" class="page">
+        <div class="header">
+          <div>
+            <h1>📝 Script Generator</h1>
+            <p>Create engaging video scripts with AI</p>
+          </div>
         </div>
-        <div class="output-section" id="viral-output"><div class="placeholder">Enter a topic to generate viral content</div></div>
+        <div class="tool-section">
+          <input type="text" id="script-topic" placeholder="Enter video topic..." class="input-field" style="flex: 1;">
+          <select id="script-style" class="input-field" style="width: 160px;">
+            <option value="educational">📚 Educational</option>
+            <option value="entertaining">🎭 Entertaining</option>
+            <option value="tutorial">🎓 Tutorial</option>
+          </select>
+          <button class="btn-primary" onclick="generateScript()">📝 Write Script</button>
+        </div>
+        <div class="output-section" id="scripts-output">
+          <div style="text-align: center; padding: 60px;">
+            <span style="font-size: 64px; display: block; margin-bottom: 16px;">📝</span>
+            <h3 style="color: white; margin-bottom: 8px;">Ready to write?</h3>
+            <p style="color: #94a3b8;">Enter a topic and style to generate your video script</p>
+          </div>
+        </div>
       </div>
 
-      <div id="page-analytics" class="page">
-        <header class="page-header"><h1>YouTube Analytics</h1><p>View your channel performance</p></header>
-        <div class="tool-section">
-          <button class="primary-btn" id="fetch-analytics-btn" onclick="fetchAnalytics()">Fetch Analytics</button>
+      <!-- Descriptions Page -->
+      <div id="descriptions" class="page">
+        <div class="header">
+          <div>
+            <h1>💬 Description Generator</h1>
+            <p>Create SEO-optimized video descriptions</p>
+          </div>
         </div>
-        <div class="output-section" id="analytics-output"><div class="placeholder">Click "Fetch Analytics" to load data</div></div>
+        <div class="tool-section">
+          <input type="text" id="desc-title" placeholder="Enter video title..." class="input-field" style="flex: 1;">
+          <button class="btn-primary" onclick="generateDescription()">💬 Generate Description</button>
+        </div>
+        <div class="output-section" id="descriptions-output">
+          <div style="text-align: center; padding: 60px;">
+            <span style="font-size: 64px; display: block; margin-bottom: 16px;">💬</span>
+            <h3 style="color: white; margin-bottom: 8px;">Ready to optimize?</h3>
+            <p style="color: #94a3b8;">Enter your video title to generate an SEO-optimized description</p>
+          </div>
+        </div>
       </div>
 
-      <div id="page-calendar" class="page">
-        <header class="page-header"><h1>Content Calendar</h1><p>Your 30-day content plan</p></header>
-        <div class="tool-section">
-          <button class="primary-btn" id="generate-calendar-btn" onclick="generateCalendar()">Generate Calendar</button>
+      <!-- Goals Page -->
+      <div id="goals" class="page">
+        <div class="header">
+          <div>
+            <h1>🚀 Goals & Roadmap</h1>
+            <p>Track your journey to ₹1L+ MRR</p>
+          </div>
         </div>
-        <div class="output-section" id="calendar-output"><div class="placeholder">Click "Generate Calendar" to create plan</div></div>
+        <div class="rule-card">
+          <span style="font-size: 48px;">✨</span>
+          <div>
+            <h3 style="color: #fbbf24; font-size: 18px; margin-bottom: 8px;">The One Rule</h3>
+            <p style="color: #e2e8f0;"><strong style="color: white;">Works for Anshuman → Document it → Sell it → Then scale it.</strong><br>Ship stage 1 before planning stage 3. Every workflow built = one video.</p>
+          </div>
+        </div>
+        <h2 style="color: white; margin-bottom: 16px;">📊 Progress Tracker</h2>
+        <div class="stats-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 32px;">
+          <div class="metric-card red"><div class="icon">👥</div><div><div style="color: #94a3b8; font-size: 12px;">Subscribers</div><div style="color: white; font-size: 24px; font-weight: 700;">359</div><div style="color: #64748b; font-size: 11px;">30d: 500 | 90d: 1K</div></div></div>
+          <div class="metric-card blue"><div class="icon">⏱️</div><div><div style="color: #94a3b8; font-size: 12px;">Watch Hours</div><div style="color: white; font-size: 24px; font-weight: 700;">430</div><div style="color: #64748b; font-size: 11px;">30d: 1.5K | 90d: 3K</div></div></div>
+          <div class="metric-card purple"><div class="icon">🎬</div><div><div style="color: #94a3b8; font-size: 12px;">Videos</div><div style="color: white; font-size: 24px; font-weight: 700;">0</div><div style="color: #64748b; font-size: 11px;">30d: 8 | 90d: 24</div></div></div>
+          <div class="metric-card green"><div class="icon">💰</div><div><div style="color: #94a3b8; font-size: 12px;">Revenue</div><div style="color: white; font-size: 24px; font-weight: 700;">₹0</div><div style="color: #64748b; font-size: 11px;">30d: ₹5K | 90d: ₹30K</div></div></div>
+        </div>
+      </div>
+
+      <!-- YouTube Page -->
+      <div id="youtube" class="page">
+        <div class="header">
+          <div>
+            <h1>📺 YouTube Studio</h1>
+            <p>Anshuman Parmar</p>
+          </div>
+        </div>
+        <div class="youtube-stats">
+          <div style="text-align: center;"><span style="font-size: 32px; font-weight: 700; color: white; display: block;" id="yt-subs">359</span><span style="color: #fca5a5; font-size: 14px;">Subscribers</span></div>
+          <div style="text-align: center;"><span style="font-size: 32px; font-weight: 700; color: white; display: block;" id="yt-views">9.6K</span><span style="color: #fca5a5; font-size: 14px;">Total Views</span></div>
+          <div style="text-align: center;"><span style="font-size: 32px; font-weight: 700; color: white; display: block;" id="yt-videos">12</span><span style="color: #fca5a5; font-size: 14px;">Videos</span></div>
+        </div>
+        <div class="tool-section">
+          <button class="btn-primary" onclick="fetchAnalytics()">🔄 Refresh Analytics</button>
+          <button class="btn-secondary" onclick="generateCalendar()">📅 Generate Calendar</button>
+        </div>
+        
+        <!-- Videos List -->
+        <div class="section-card" style="margin-top: 24px;">
+          <h3>🎬 Your Videos</h3>
+          <div id="youtube-videos" style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="text-align: center; padding: 40px; color: #64748b;">
+              <span style="font-size: 32px; display: block; margin-bottom: 8px;">📹</span>
+              Loading videos...
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Insights Page -->
+      <div id="insights" class="page">
+        <div class="header">
+          <div>
+            <h1>📈 Insights &amp; Analytics</h1>
+            <p>Deep-dive into your channel performance and growth trajectory</p>
+          </div>
+        </div>
+
+        <!-- YPP Banner -->
+        <div id="insights-ypp-banner" style="padding:24px 28px; background:linear-gradient(135deg,rgba(99,102,241,0.2),rgba(139,92,246,0.15),rgba(6,182,212,0.1)); border:1px solid rgba(99,102,241,0.3); border-radius:20px; margin-bottom:28px; display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
+          <span style="font-size:48px;">🏆</span>
+          <div style="flex:1; min-width:200px;">
+            <div style="color:white; font-weight:700; font-size:18px; margin-bottom:6px;" id="ypp-title">YouTube Partner Program — 0% Complete</div>
+            <div style="color:#94a3b8; font-size:13px; margin-bottom:14px;" id="ypp-desc">Loading...</div>
+            <div style="height:10px; background:rgba(255,255,255,0.1); border-radius:6px; overflow:hidden;">
+              <div id="ypp-bar" style="height:100%; width:0%; background:linear-gradient(90deg,#6366f1,#8b5cf6,#06b6d4); border-radius:6px; transition:width 1s ease;"></div>
+            </div>
+          </div>
+          <div style="text-align:right;">
+            <div id="ypp-pct" style="color:#818cf8; font-size:32px; font-weight:800;">0%</div>
+            <div style="color:#64748b; font-size:12px;">Overall progress</div>
+          </div>
+        </div>
+
+        <!-- Metrics Grid -->
+        <div id="insights-metrics" style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:28px;"></div>
+
+        <!-- Goals + Top Video -->
+        <div style="display:grid; grid-template-columns:1.6fr 1fr; gap:20px; margin-bottom:28px;">
+          <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.09); border-radius:20px; padding:24px;">
+            <h3 style="color:white; font-weight:700; font-size:16px; margin-bottom:20px;">🎯 Goal Tracker</h3>
+            <div id="insights-goals" style="display:flex; flex-direction:column; gap:18px;"></div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:16px;">
+            <div style="background:linear-gradient(135deg,rgba(16,185,129,0.15),rgba(6,182,212,0.1)); border:1px solid rgba(16,185,129,0.25); border-radius:20px; padding:22px; flex:1;">
+              <h3 style="color:white; font-weight:700; font-size:15px; margin-bottom:16px;">🏅 Top Performer</h3>
+              <div id="insights-top-video"><p style="color:#64748b; font-size:13px;">Loading...</p></div>
+            </div>
+            <div style="background:linear-gradient(135deg,rgba(236,72,153,0.15),rgba(139,92,246,0.1)); border:1px solid rgba(236,72,153,0.25); border-radius:20px; padding:22px;">
+              <h3 style="color:white; font-weight:700; font-size:15px; margin-bottom:12px;">💫 Avg Engagement</h3>
+              <div id="insights-engagement" style="font-size:40px; font-weight:800; color:#f472b6;">0%</div>
+              <p id="insights-eng-sub" style="color:#94a3b8; font-size:12px;">across 0 videos</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video Table -->
+        <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.09); border-radius:20px; padding:24px;">
+          <h3 style="color:white; font-weight:700; font-size:16px; margin-bottom:20px;">📋 All Videos Performance</h3>
+          <div id="insights-video-table" style="display:flex; flex-direction:column; gap:10px;">
+            <p style="color:#64748b; font-size:13px; text-align:center; padding:20px;">Loading video data...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Analytics Page -->
+      <div id="analytics" class="page">
+        <div class="header"><div><h1>📊 Analytics</h1><p>Deep dive into your content performance</p></div></div>
+        <div class="coming-soon">
+          <span class="coming-soon-icon">📊</span>
+          <h3 style="color: white; font-size: 24px; margin-bottom: 12px;">Advanced Analytics Coming Soon</h3>
+          <p style="color: #94a3b8; max-width: 400px; margin: 0 auto 24px;">We're building powerful analytics dashboards with real-time insights.</p>
+          <div style="display: flex; gap: 8px; justify-content: center;"><span class="badge badge-primary">Real-time</span><span class="badge badge-purple">AI Insights</span><span class="badge badge-cyan">Predictions</span></div>
+        </div>
+      </div>
+
+      <!-- Video Tray Page -->
+      <div id="tray" class="page">
+        <div class="header">
+          <div>
+            <h1>🎬 Video Tray</h1>
+            <p>Manage your queued video ideas — generate content for each</p>
+          </div>
+          <div class="header-actions">
+            <button class="btn-secondary" onclick="clearTray()">🗑 Clear Tray</button>
+          </div>
+        </div>
+        <!-- Controls bar -->
+        <div id="tray-controls" style="display:none;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:12px 16px;margin-bottom:16px;flex-wrap:wrap;gap:10px;align-items:center;">
+          <input type="text" placeholder="🔍 Search tray..." oninput="setTraySearch(this.value)"
+            style="flex:1;min-width:140px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:6px 12px;color:#f1f5f9;font-size:12px;outline:none;">
+          <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap;">
+            <span style="color:#475569;font-size:10px;font-weight:700;">SORT</span>
+            <button id="tray-sort-added"       data-label="Recent"     onclick="setTraySort('added')"       style="padding:5px 10px;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,0.08);color:#64748b;background:rgba(255,255,255,0.04);">Recent</button>
+            <button id="tray-sort-probability" data-label="Success %"  onclick="setTraySort('probability')" style="padding:5px 10px;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,0.08);color:#64748b;background:rgba(255,255,255,0.04);">Success %</button>
+            <button id="tray-sort-demand"      data-label="Demand"     onclick="setTraySort('demand')"      style="padding:5px 10px;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,0.08);color:#64748b;background:rgba(255,255,255,0.04);">Demand</button>
+            <button id="tray-sort-competition" data-label="Competition" onclick="setTraySort('competition')" style="padding:5px 10px;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,0.08);color:#64748b;background:rgba(255,255,255,0.04);">Competition</button>
+          </div>
+          <div style="display:flex;align-items:center;gap:5px;">
+            <span style="color:#475569;font-size:10px;font-weight:700;">DEMAND</span>
+            <button id="tray-fd-all"    onclick="setTrayFilterDemand('all')"    style="padding:4px 8px;border-radius:5px;font-size:10px;font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,0.06);color:#34d399;background:rgba(16,185,129,0.15);">All</button>
+            <button id="tray-fd-High"   onclick="setTrayFilterDemand('High')"   style="padding:4px 8px;border-radius:5px;font-size:10px;font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,0.06);color:#64748b;background:rgba(255,255,255,0.03);">High</button>
+            <button id="tray-fd-Medium" onclick="setTrayFilterDemand('Medium')" style="padding:4px 8px;border-radius:5px;font-size:10px;font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,0.06);color:#64748b;background:rgba(255,255,255,0.03);">Medium</button>
+            <button id="tray-fd-Low"    onclick="setTrayFilterDemand('Low')"    style="padding:4px 8px;border-radius:5px;font-size:10px;font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,0.06);color:#64748b;background:rgba(255,255,255,0.03);">Low</button>
+          </div>
+          <div style="display:flex;align-items:center;gap:5px;">
+            <span style="color:#475569;font-size:10px;font-weight:700;">COMP</span>
+            <button id="tray-fc-all"    onclick="setTrayFilterComp('all')"    style="padding:4px 8px;border-radius:5px;font-size:10px;font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,0.06);color:#818cf8;background:rgba(99,102,241,0.15);">All</button>
+            <button id="tray-fc-Low"    onclick="setTrayFilterComp('Low')"    style="padding:4px 8px;border-radius:5px;font-size:10px;font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,0.06);color:#64748b;background:rgba(255,255,255,0.03);">Low</button>
+            <button id="tray-fc-Medium" onclick="setTrayFilterComp('Medium')" style="padding:4px 8px;border-radius:5px;font-size:10px;font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,0.06);color:#64748b;background:rgba(255,255,255,0.03);">Medium</button>
+            <button id="tray-fc-High"   onclick="setTrayFilterComp('High')"   style="padding:4px 8px;border-radius:5px;font-size:10px;font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,0.06);color:#64748b;background:rgba(255,255,255,0.03);">High</button>
+          </div>
+          <span id="tray-filter-count" style="color:#64748b;font-size:11px;margin-left:auto;"></span>
+        </div>
+        <div id="tray-empty" style="text-align:center;padding:60px;">
+          <span style="font-size:64px;display:block;margin-bottom:16px;">🎬</span>
+          <h3 style="color:white;margin-bottom:8px;">Video Tray is empty</h3>
+          <p style="color:#94a3b8;">Go to Idea Generator and click "Add to Tray" to queue ideas here</p>
+        </div>
+        <div id="tray-list" style="display:flex;flex-direction:column;gap:12px;"></div>
+      </div>
+
+      <!-- Social Content Page -->
+      <div id="social" class="page">
+        <div class="header">
+          <div>
+            <h1>🚀 Social Content</h1>
+            <p>LinkedIn posts, Twitter threads, YouTube hashtags — SEO optimized</p>
+          </div>
+        </div>
+        <div class="tool-section" style="flex-wrap:wrap;gap:12px;">
+          <input type="text" id="social-topic" placeholder="Enter video topic..." class="input-field" style="flex:1;min-width:200px;">
+          <select id="social-type" class="input-field" style="width:180px;">
+            <option value="linkedin">💼 LinkedIn Post</option>
+            <option value="twitter">🐦 Twitter Thread</option>
+            <option value="hashtags">#️⃣ YouTube Hashtags</option>
+          </select>
+          <button class="btn-primary" onclick="generateSocial(event)">🚀 Generate</button>
+        </div>
+        <!-- From tray -->
+        <div id="social-tray-picker" style="margin-bottom:16px;display:none;">
+          <p style="color:#64748b;font-size:12px;margin-bottom:8px;">📌 Or pick from Video Tray:</p>
+          <div id="social-tray-chips" style="display:flex;flex-wrap:wrap;gap:8px;"></div>
+        </div>
+        <div class="output-section" id="social-output">
+          <div style="text-align:center;padding:60px;">
+            <span style="font-size:64px;display:block;margin-bottom:16px;">🚀</span>
+            <h3 style="color:white;margin-bottom:8px;">Ready to create social content?</h3>
+            <p style="color:#94a3b8;">Enter a topic or pick from your Video Tray</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Library Page (real) -->
+      <div id="library" class="page">
+        <div class="header">
+          <div>
+            <h1>📁 Content Library</h1>
+            <p>Everything auto-saved — scripts, ideas, descriptions, social posts</p>
+          </div>
+          <div class="header-actions">
+            <button class="btn-secondary" onclick="exportLibrary()">⬇ Export JSON</button>
+            <button class="btn-secondary" onclick="clearLibrary()" style="margin-left:8px;">🗑 Clear All</button>
+          </div>
+        </div>
+
+        <!-- Filter + Search -->
+        <div style="display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap;">
+          <input type="text" id="lib-search" placeholder="🔍 Search titles, content..." class="input-field" style="flex:1;" oninput="renderLibrary()">
+          <select id="lib-filter" class="input-field" style="width:180px;" onchange="renderLibrary()">
+            <option value="all">All Types</option>
+            <option value="idea">💡 Ideas</option>
+            <option value="script">📝 Scripts</option>
+            <option value="description">💬 Descriptions</option>
+            <option value="linkedin">💼 LinkedIn</option>
+            <option value="twitter">🐦 Twitter</option>
+            <option value="hashtags">#️⃣ Hashtags</option>
+          </select>
+        </div>
+
+        <!-- Stats row -->
+        <div id="lib-stats" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;"></div>
+
+        <!-- Items -->
+        <div id="lib-list" style="display:flex;flex-direction:column;gap:10px;">
+          <div style="text-align:center;padding:60px;color:#64748b;">
+            <span style="font-size:48px;display:block;margin-bottom:12px;">📭</span>
+            <p>Generate scripts, ideas, or social content — they auto-save here</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings Page -->
+      <div id="settings" class="page">
+        <div class="header"><div><h1>⚙️ Settings</h1><p>Configure your CreatorOS integrations</p></div></div>
+        <div class="settings-section">
+          <h3 style="color: white; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">🔑 API Configuration</h3>
+          <div style="margin-bottom: 16px;"><label style="color: #94a3b8; font-size: 14px; display: block; margin-bottom: 8px;">YouTube API Key</label><input type="password" placeholder="Enter your YouTube Data API key..." class="input-field"></div>
+          <div style="margin-bottom: 16px;"><label style="color: #94a3b8; font-size: 14px; display: block; margin-bottom: 8px;">Channel ID</label><input type="text" placeholder="UC..." class="input-field"></div>
+        </div>
+        <div style="display: flex; justify-content: flex-end; gap: 12px;"><button class="btn-secondary">Cancel</button><button class="btn-primary">💾 Save Settings</button></div>
       </div>
     </main>
   </div>
+
   <script src="main.js"></script>
 </body>
 </html>
